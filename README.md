@@ -1,7 +1,7 @@
 # JavaGadgetGenerator
-* JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC，FastjsonBypass 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
+* JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
 * (如果对您有帮助，感觉不错的话，请您给个大大的 ⭐️❗️)
-<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/2b58c19d-c5cc-45d9-bb8d-c8d756eca148" />
+<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/a366afcf-20e3-44c7-8986-984c4a824e26" />
 
 
 
@@ -9,16 +9,18 @@
 
 ### Ysoserial chain
 
-| Ysoserial Gadget | 实现  |
-|------------------|-----|
-| cc 等链            | √   |
-| cb 等链            | √   |
-| Fastjson1        | √   |
-| Fastjson2        | √   |
-| SpringAOP（jdk17） | √   |
-| TongWebEcj       | √   |
-| Fileupload1      | √   |
-| …                |     |
+| Ysoserial Gadget          | 实现  |
+|---------------------------|-----|
+| cc 等链                     | √   |
+| cb 等链                     | √   |
+| Fastjson1                 | √   |
+| Fastjson2                 | √   |
+| SpringAOP（jdk17）          | √   |
+| TongWebEcj7042            | √   |
+| TongWebEcj7049            | √   |
+| Fileupload1               | √   |
+| BESRhino2(spark/ojep反序列化) | √   |
+| …                         |     |
 
 ### 帆软 Gadget
 
@@ -213,7 +215,7 @@
 
 
 
-**致谢**
+**感谢**
 
 https://github.com/frohoff/ysoserial
 
@@ -234,8 +236,6 @@ https://github.com/woodpecker-appstore/jexpr-encoder-utils
 https://github.com/kezibei/Urldns
 
 https://github.com/unam4/yso-mysqlpipe
-
-
 
 
 
