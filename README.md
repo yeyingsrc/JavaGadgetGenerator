@@ -1,7 +1,8 @@
 # JavaGadgetGenerator
 * JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
 * (如果对您有帮助，感觉不错的话，请您给个大大的 ⭐️❗️)
-<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/a366afcf-20e3-44c7-8986-984c4a824e26" />
+<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/4a0647bc-53c9-470b-a180-a2accd475949" />
+
 
 
 
@@ -47,32 +48,37 @@
 2. Httplog，Http 出网探测，参数：http://x.x.x.x
 3. Sleep，延时探测，参数：10(约等于 10 秒)
 4. SleepCheckFile，延时探测文件是否存在，参数 5(约等于 5 秒)：，额外参数 /tmp/test.txt
-5. ClassLoaderFromBase64File，ClassLoader define 加载目标本地 base64 字节码文件，参数：/tmp/EvilBase64
-6. ClassLoaderFromBase64Code，ClassLoader define 加载 base64 字节码，参数：Base64Str
-7. UnsafeDefineAmFromBase64Code，Unsafe define 加载 base64 字节码，参数：Base64Str，
-8. UrlClassLoaderFromJar，URLClassLoader 加载目标本地恶意 JAR，参数：jar 的路径(file:///tmp/Evil.jar) ，额外参数： jar 的 ClassName 
-9. WebShell，填写 webshell base64 字节码
-10. TomcatCmdEcho，Tomcat 通用回显：header 头 par1m：whoami，无参数
-11. LoadClass，加载本地恶意 Class 文件内容，参数：/Users/xxx/Desktop/Evil.class
-12. LoadClassBase64，加载恶意 base64 Class 文件内容，参数：base64Str 
-13. MemorySystemSetProperty:分段设置 SystemSetProperty，ClassLoader 加载，参数处传入 base64 自定义字节码
-14. SplitChunkWriteFile:分段写入文件到指定目录，ClassLoader 加载，参数处传入 base64 自定义字节码，额外参数传入路径 /tmp/EvilBase64
-15. SplitChunkWriteThread:分段写入到 Tomcat ThreadName，ClassLoader 加载，参数处传入 base64 自定义字节码
-16. SplitChunkWriteProperty:分段写入到 System.property，ClassLoader 加载，参数处传入 base64 自定义字节码
-17. CodeFile，代码如：java.lang.Runtime.getRuntime().exec("open -a Calculator", 参数：/Users/xxx/Desktop/Code.txt
-18. CodeBase64，base64 后想执行的 java 代码，参数：base64Str
-19. Bcel，BCELClassloader 加载恶意字节码，参数：$$BCEL$$...
-20. BcelClassFile，BCELClassloader 加载恶意字节码，参数：/Users/xxx/Desktop/Evil.class
-21. ScriptBase64，js.eval() 方式执行，参数：base64Str（js eval code）
-22. ScriptFile，js.eval() 方式执行，参数：/Users/xxx/Desktop/jsEvalCodeFile
-23. JNDI，lookup JNDI 地址，参数：ldap://xxx.xxx.xxx.xxx
-24. UploadFile，读取本地文件写入到目标机器路径，参数：本地文件路径，额外参数：目标路径
-25. UploadFileBase64，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径
-26. UploadFileBase64Crack，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径，仅用于（Fileupload1）链，用于报错出随机文件名
-27. MozillaClassLoader，Runtime，Template 被禁用情况下用 org.mozilla.javascript.DefiningClassLoader defineClass 加载字节码，参数：本地 class 文件路径，额外参数：ClassName
-28. LoadRemoteClass，加载远程恶意 class，参数：http://127.0.0.1:8000/，额外参数：Txxxxx（恶意类名）
-29. LoadRemoteJar，加载远程恶意 jar，参数：http://127.0.0.1:8000/evil.jar，额外参数：Txxxxx（恶意类名）
-30. LoadRemoteSQL，加载远程恶意 sql，参数：http://127.0.0.1:8000/evil.sql
+5. SleepCheckClass，延时探测类是否存在，参数：java.lang.String，额外参数 5(约等于 5 秒)
+6. DnslogCheckClass，dnslog 探测类是否存在，参数：java.lang.String，额外参数 xxx.dnslog.cn
+7. ClassLoaderFromBase64File，ClassLoader define 加载目标本地 base64 字节码文件，参数：/tmp/EvilBase64
+8. LoadFromSpringCPX，加载目标本地 classpathxml 文件，参数：file:///tmp/test.xml，tomcat 上传 tmp 目录利用（file://"+System.getProperty("catalina.base")+"/**/*.tmp）
+9. LoadFromJS，加载目标本地 js 文件，参数：/tmp/test.js
+10. ClassLoaderFromBase64Code，ClassLoader define 加载 base64 字节码，参数：Base64Str
+11. UnsafeDefineAmFromBase64Code，Unsafe define 加载 base64 字节码，参数：Base64Str，
+12. UrlClassLoaderFromJar，URLClassLoader 加载目标本地恶意 JAR，参数：jar 的路径(file:///tmp/Evil.jar) ，额外参数： jar 的 ClassName 
+13. WebShell，填写 webshell base64 字节码
+14. TomcatCmdEcho，Tomcat 通用回显：header 头 par1m：whoami，无参数
+15. LoadClass，加载本地恶意 Class 文件内容，参数：/Users/xxx/Desktop/Evil.class
+16. LoadClassBase64，加载恶意 base64 Class 文件内容，参数：base64Str 
+17. MemorySystemSetProperty:分段设置 SystemSetProperty，ClassLoader 加载，参数处传入 base64 自定义字节码
+18. SplitChunkWriteFile:分段写入文件到指定目录，ClassLoader 加载，参数处传入 base64 自定义字节码，额外参数传入路径 /tmp/EvilBase64
+19. SplitChunkWriteThread:分段写入到 Tomcat ThreadName，ClassLoader 加载，参数处传入 base64 自定义字节码
+20. SplitChunkWriteProperty:分段写入到 System.property，ClassLoader 加载，参数处传入 base64 自定义字节码
+21. CodeFile，代码如：java.lang.Runtime.getRuntime().exec("open -a Calculator", 参数：/Users/xxx/Desktop/Code.txt
+22. CodeBase64，base64 后想执行的 java 代码，参数：base64Str
+23. Bcel，BCELClassloader 加载恶意字节码，参数：$$BCEL$$...
+24. BcelClassFile，BCELClassloader 加载恶意字节码，参数：/Users/xxx/Desktop/Evil.class
+25. ScriptBase64，js.eval() 方式执行，参数：base64Str（js eval code）
+26. ScriptFile，js.eval() 方式执行，参数：/Users/xxx/Desktop/jsEvalCodeFile
+27. JNDI，lookup JNDI 地址，参数：ldap://xxx.xxx.xxx.xxx
+28. UploadFile，读取本地文件写入到目标机器路径，参数：本地文件路径，额外参数：目标路径
+29. UploadFileBase64，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径
+30. UploadFileBase64Crack，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径，仅用于（Fileupload1）链，用于报错出随机文件名
+31. MozillaClassLoader，Runtime，Template 被禁用情况下用 org.mozilla.javascript.DefiningClassLoader defineClass 加载字节码，参数：本地 class 文件路径，额外参数：ClassName
+32. LoadRemoteClass，加载远程恶意 class，参数：http://127.0.0.1:8000/，额外参数：Txxxxx（恶意类名）
+33. LoadRemoteJar，加载远程恶意 jar，参数：http://127.0.0.1:8000/evil.jar，额外参数：Txxxxx（恶意类名）
+34. LoadRemoteSQL，加载远程恶意 sql，参数：http://127.0.0.1:8000/evil.sql
+
 
 
 ## 2.bytes 模块
@@ -85,6 +91,7 @@
 | XALAN_Abstrant          | Template 链继承父类                       | 外部 Apache Xalan 库的版本                             |
 | FastjsonGroovy          | @GroovyASTTransformation 注解封装        | Fastjson Groovy 1.2.80 利用                        |
 | FastjsonAutoGroovy      | AutoCloseable 实现类                    | Fastjson 1.2.68 利用                               |
+| FastjsonJSONType      | JSONType 注解                    | Fastjson 1.2.83 利用                               |
 | JavaSerialize           | Serializable 实现类                     | 反序列化利用                                           |
 | Java_Main               | 恶意方法封装到 _main 函数内                    | Hessian 反序列化利用链 BCEL 需要（JavaWrapper#_main）       |
 | JavaMain                | main 函数                              | 双击运行 jar                                         |
@@ -94,6 +101,9 @@
 | SvgJar 输出               | MANIFEST.MF SVG-Handler-Class:xxx 入口 | svg setter RCE 时利用                               |
 | ScriptSPIJar 输出         | ScriptEngineFactory 实现类              | Snakeyaml loadJar 时需要实现 ScriptEngineFactory 接口   |
 | ClassName               | 自定义类名，不传入参数则随机生成类名                   | 自定义类名，DerbyRemoteJarLoader 加载 jar 时执行 jar 包静态方法。 |
+| PGSQL_SocketFactory               | extends SocketFactory                    | 42.7.9+ 高版本利用 |
+| MYSQL_Transform               | implements Transform                   | 8.1.10+ 高版本利用 |
+| MYSQL_Socket               | implements Socket     | 8.1.10+ 高版本利用 |
 
 
 ## 3.Expr/SSTI 模块
